@@ -1,7 +1,7 @@
 # Template file for 'xen'
 pkgname=xen
 version=4.10.4
-revision=1
+revision=2
 # grep -R IPXE_GIT_TAG src/xen-*/tools/firmware/etherboot
 _git_tag_ipxe=356f6c1b64d7a97746d1816cef8ca22bdd8d0b5d
 archs="x86_64*"
@@ -13,7 +13,7 @@ makedepends="SDL-devel dtc-devel e2fsprogs-devel gnutls-devel libaio-devel
  netpbm pciutils-devel pixman-devel python-devel seabios yajl-devel"
 depends="bridge-utils perl xen-hypervisor"
 short_desc="Xen hypervisor utilities"
-maintainer="Juan RP <xtraeme@voidlinux.org>"
+maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-2.0-or-later"
 homepage="https://www.xenproject.org/"
 distfiles="

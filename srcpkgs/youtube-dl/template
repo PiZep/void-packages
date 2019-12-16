@@ -1,26 +1,26 @@
 # Template file for 'youtube-dl'
 pkgname=youtube-dl
-version=2019.08.02
+version=2019.11.28
 revision=1
 archs=noarch
-wrksrc="$pkgname"
+wrksrc=youtube-dl
 build_style=python3-module
 pycompile_module="youtube_dl"
 hostmakedepends="python3"
 depends="python3"
 short_desc="CLI program to download videos from YouTube and other sites"
-maintainer="Juan RP <xtraeme@voidlinux.org>"
+maintainer="Daniel Eyßer <daniel.eysser@gmail.com>"
 license="Unlicense"
-homepage="https://rg3.github.io/youtube-dl/"
-changelog="https://raw.githubusercontent.com/rg3/youtube-dl/master/ChangeLog"
-distfiles="https://yt-dl.org/downloads/${version}/${pkgname}-${version}.tar.gz"
-checksum=573c37add3e6107bf0c3c8ce43443bb788957d7bfb5e736cee6b32e3b2342b80
+homepage="https://ytdl-org.github.io/youtube-dl/"
+changelog="https://raw.githubusercontent.com/ytdl-org/youtube-dl/master/ChangeLog"
+distfiles="https://yt-dl.org/downloads/${version}/youtube-dl-${version}.tar.gz"
+checksum=93dfcb77811cafb5aef090504eb43e8fd3fca0df694676a4ff71023a6ce3b1a7
 
 post_install() {
 	rm -rf ${DESTDIR}/usr/etc
-	vinstall ${pkgname}.bash-completion 644 usr/share/bash-completion/completions ${pkgname}
-	vinstall ${pkgname}.zsh 644 usr/share/zsh/site-functions _${pkgname}
-	vinstall ${pkgname}.fish 644 usr/share/fish/completions ${pkgname}.fish
+	vinstall youtube-dl.bash-completion 644 usr/share/bash-completion/completions youtube-dl
+	vinstall youtube-dl.zsh 644 usr/share/zsh/site-functions _youtube-dl
+	vinstall youtube-dl.fish 644 usr/share/fish/completions youtube-dl.fish
 }
 
 python3-youtube-dl_package() {

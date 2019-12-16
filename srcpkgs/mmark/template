@@ -1,6 +1,6 @@
 # Template file for 'mmark'
 pkgname=mmark
-version=2.0.48
+version=2.2.0
 revision=1
 build_style=go
 go_import_path=github.com/mmarkdown/mmark
@@ -10,7 +10,7 @@ maintainer="Robert Lowry <bobertlo@gmail.com>"
 license="BSD-2-Clause"
 homepage="https://github.com/mmarkdown/mmark/"
 distfiles="https://github.com/mmarkdown/mmark/archive/v${version}.tar.gz"
-checksum=aea7221f4acbe1bed224690c7bda85896ba89fa448e7619df9856c5cb1228fce
+checksum=8a7b278b93b737daf46554fa83b86538b1f6eee02f8508eb08581aa578531f02
 
 post_install() {
 	vlicense LICENSE

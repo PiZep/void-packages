@@ -1,6 +1,6 @@
 # Template file for 'marble5'
 pkgname=marble5
-version=19.04.3
+version=19.08.3
 revision=1
 wrksrc="marble-${version}"
 build_style=cmake
@@ -14,7 +14,11 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="LGPL-2.1-or-later, GFDL-1.2-only"
 homepage="https://marble.kde.org"
 distfiles="${KDE_SITE}/applications/${version}/src/marble-${version}.tar.xz"
-checksum=b2451d338bf433d5a0211c954f48fb5c6c80fecbb8fa69d604276fecb45fe826
+checksum=cd5d7f758d2234dc8e2fa638b9e1326461655e10dbe21910dbef029e80ef7a68
+
+pre_configure() {
+	vsed -i CMakeLists.txt -e 's/-Wcast-align//'
+}
 
 marble5-devel_package() {
 	short_desc+=" - development files"
@@ -24,5 +28,6 @@ marble5-devel_package() {
 		vmove usr/include
 		vmove "usr/lib/*.so"
 		vmove usr/lib/cmake
+		vmove usr/lib/qt5/mkspecs
 	}
 }
