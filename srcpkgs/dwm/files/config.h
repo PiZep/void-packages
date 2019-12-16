@@ -72,8 +72,9 @@ static const char *termcmd[]    = { "st", NULL };
 static const char *upvol[]      = { "amixer", "set", "Master", "1%+", NULL };
 static const char *downvol[]    = { "amixer", "set", "Master", "1%-", NULL };
 static const char *mute[]       = { "amixer", "set", "Master", "toggle", NULL };
-static const char *upbright[]   = { "xbacklight", "-inc", "10", NULL };
-static const char *downbright[] = { "xbacklight", "-dec", "10", NULL };
+static const char *upbright[]   = { "xbacklight", "-inc", "5", NULL };
+static const char *downbright[] = { "xbacklight", "-dec", "5", NULL };
+static const char *sleep[] = { "sudo", "zzz", NULL };
 
 static Key keys[] = {
 	/* modifier             key    function        argument */
@@ -106,6 +107,7 @@ static Key keys[] = {
 	{ 0,                   123,    spawn,          {.v = upvol } },      // F3
 	{ 0,                   232,    spawn,          {.v = downbright } }, // F5
 	{ 0,                   233,    spawn,          {.v = upbright } },   // F6
+	{ 0,                   151,    spawn,          {.v = sleep } },      // closing lid
 	TAGKEYS(                10,                    0)                    // 1
 	TAGKEYS(                11,                    1)                    // 2
 	TAGKEYS(                12,                    2)                    // 3
