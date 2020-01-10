@@ -1,6 +1,6 @@
 # Template file for 'retroarch'
 pkgname=retroarch
-version=1.8.1
+version=1.8.2
 revision=1
 wrksrc="RetroArch-$version"
 build_style=configure
@@ -23,18 +23,17 @@ maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-3.0-or-later"
 homepage="http://www.libretro.com/"
 distfiles="https://github.com/libretro/RetroArch/archive/v$version.tar.gz"
-checksum=cd4e403042fd923e0669014bd716c4beef340d60001007f8cfacff11f33cb0e7
+checksum=2c620e5a248261805be6fb3f985e516cdc8053cb9acfe8ac05c3cce96e15bc8d
 build_options="ffmpeg opengl jack pulseaudio sdl2 x11 vulkan qt5"
 
 build_options_default="ffmpeg"
 
 case "$XBPS_TARGET_MACHINE" in
-	i686*|x86_64*|ppc64*) build_options_default+=" opengl pulseaudio sdl2 x11 vulkan";;
-	armv[67]*) broken="https://build.voidlinux.org/builders/armv7l_builder/builds/19214/steps/shell_3/logs/stdio"
+	i686*|x86_64*|ppc64*|aarch64*) build_options_default+=" opengl pulseaudio sdl2 x11 vulkan";;
+	armv[67]*)
 		makedepends+=" rpi-userland-devel"
 		LDFLAGS="-L${XBPS_CROSS_BASE}/opt/vc/lib -lbcm_host"
 		;;
-	aarch64*) broken="https://build.voidlinux.org/builders/aarch64_builder/builds/21161/steps/shell_3/logs/stdio";;
 esac
 
 do_configure() {
@@ -46,7 +45,7 @@ do_configure() {
 	case "$XBPS_TARGET_MACHINE" in
 		i686*|x86_64*) configure_args+=" --enable-sse --enable-threads";;
 		ppc64*) configure_args+=" --enable-threads";;
-		aarch64*) configure_args+=" --enable-neon";;
+		aarch64*) configure_args+=" --disable-neon";;
 		armv6*) configure_args+=" --disable-neon"
 			CFLAGS+=" -I${XBPS_CROSS_BASE}/opt/vc/include"
 			LDFLAGS+=" -L${XBPS_CROSS_BASE}/opt/vc/lib -Wl,-R /opt/vc/lib";;

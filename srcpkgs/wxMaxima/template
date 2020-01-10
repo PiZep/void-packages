@@ -1,6 +1,6 @@
 # Template file for 'wxMaxima'
 pkgname=wxMaxima
-version=19.11.1
+version=19.12.4
 revision=1
 wrksrc="wxmaxima-Version-${version}"
 build_style=cmake
@@ -12,7 +12,7 @@ maintainer="Martin Riese <grauehaare@gmx.de>"
 license="GPL-2.0-or-later"
 homepage="https://wxmaxima-developers.github.io/wxmaxima/"
 distfiles="https://github.com/wxMaxima-developers/wxmaxima/archive/Version-${version}.tar.gz"
-checksum=d3744fe7596f14dcbce550f592b3b699ce9ec216edecd2e4f5380b4b0d562fd6
+checksum=530f8023b31d109e04385b7357b585ec539f6366aa07090544f81c9493baef5e
 nocross="clisp is nocross"
 
 post_install() {
