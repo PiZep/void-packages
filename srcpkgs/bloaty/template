@@ -3,6 +3,7 @@ pkgname=bloaty
 version=1.0
 revision=1
 build_style=cmake
+build_helper=qemu
 makedepends="zlib-devel"
 # vendored: capstone protobuf re2
 short_desc="Bloaty McBloatface: a size profiler for binaries"
@@ -11,12 +12,10 @@ license="Apache-2.0"
 homepage="https://github.com/google/bloaty"
 distfiles="https://github.com/google/bloaty/releases/download/v${version}/bloaty-${version}.tar.bz2"
 checksum=e1cf9830ba6c455218fdb50e7a8554ff256da749878acfaf77c032140d7ddde0
-nocross="fails to use vendored protobuf"
 
-case "$XBPS_TARGET_MACHINE" in
-	ppc64*) ;;
-	armv6*|ppc*) makedepends+=" libatomic-devel";;
-esac
+if [ "$XBPS_TARGET_NO_ATOMIC8" ]; then
+	makedepends+=" libatomic-devel"
+fi
 
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" protobuf"

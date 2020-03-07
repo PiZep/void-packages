@@ -1,10 +1,10 @@
 # Template file for 'ktouch'
 pkgname=ktouch
-version=19.12.0
+version=19.12.2
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules kconfig kcoreaddons kdoctools
- pkg-config qt5-declarative qt5-qmake qt5-host-tools"
+ pkg-config qt5-declarative qt5-qmake qt5-host-tools gettext"
 makedepends="libxkbfile-devel kdeclarative-devel kcmutils-devel
  qt5-xmlpatterns-devel qt5-tools-devel kio-devel qt5-plugin-mysql qt5-plugin-tds
  qt5-declarative-devel qt5-plugin-odbc qt5-plugin-pgsql qt5-plugin-sqlite
@@ -15,7 +15,7 @@ maintainer="1is7ac3 <isaac.qa13@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="https://kde.org/applications/education/ktouch"
 distfiles="${KDE_SITE}/release-service/${version}/src/ktouch-${version}.tar.xz"
-checksum=721682cac4122054a31eedafa66afb9d98abd56c83d4b230a79c4c86a9adf15f
+checksum=85789491cb04b3fe7c9eae2e1bc8e606847cf3b6a61a45d969e7f97318c29472
 
 post_configure() {
 	sed -e 's|/usr/bin/qmlcachegen|/usr/bin/qmlcachegen-qt5|g' \

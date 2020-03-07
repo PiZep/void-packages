@@ -6,10 +6,15 @@
 masterdir*
 hostdir*
 etc/conf
+etc/conf.*
 etc/virtual
+<<<<<<< HEAD
 <<<<<<< HEAD
 .xbps-checkvers.plist
 .ccls-cache
 =======
+=======
+etc/xbps.d/custom
+>>>>>>> c48cf123bae5a7f3efad32cd314b2823f7aa55d7
 .xbps-checkvers*.plist
 >>>>>>> a4e62ea85768bc8574807778bdbbfe24a42015a3
